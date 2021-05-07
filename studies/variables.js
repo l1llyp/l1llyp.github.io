@@ -22,14 +22,27 @@ var myName;
 console.log(myName); // prints => undefined
 
 // 2. initialization or assignment //
-myName = 'john';
-console.log(myName); // prints => john
+myName = "Amelia";
+console.log(myName); // prints => Amelia
 
 // 3. re-assignment //
-myName = 'bob';
-console.log(myName); // prints => bob
+myName = "Josh";
+console.log(myName); // prints => Josh
 
 // NOTE: We can assign and re-assign anything to a variable - we cannot do this with constants //
 var myVariable = 1;
 var myVariable = true;
 myVariable = "someString";
+
+
+
+
+/**
+ * VAR, LET, CONST
+ * 
+ * 0.
+ * 
+ * 
+ * 
+ * 
+ */ 
