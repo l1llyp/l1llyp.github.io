@@ -38,10 +38,22 @@ myVariable = "someString";
 
 
 /**
- * VAR, LET, CONST
+ * VAR, LET, CONST:
  * 
- * 0.
+ * 0. All of these keywords are containers, but they very in flexibility. 
  * 
+ * 
+ *  a. Var is the most loosly typed container. Variables are reassignable, 
+ * hoisted to the top of the scope, globally scoped meaning they can be accessed 
+ * anywhere, before or after declaration. Var is also locally scoped meaning that
+ * when it's initalized inside of a function code block, you can't access it outside of that.
+ * Var is not block scoped, meaning you can access it outside of if/else if/ else statements.
+ * 
+ *  b. Let
+ * 
+ * 
+ *  c. Const
+ *
  * 
  * 
  * 
