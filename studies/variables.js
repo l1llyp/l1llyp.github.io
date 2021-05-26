@@ -49,12 +49,41 @@ myVariable = "someString";
  * when it's initalized inside of a function code block, you can't access it outside of that.
  * Var is not block scoped, meaning you can access it outside of if/else if/ else statements.
  * 
- *  b. Let
+ *  b. Let is a little more strict. Variables assigned with let are reassignable,
+ * are not hoisted to the top of the scope. Let, like var, however, is locally scoped.
+ * Unlike var, let is block scoped, meaning you cannot access it outside of if/else if/ else 
+ * statement.
  * 
  * 
- *  c. Const
- *
+ *  c. Const is the most strict container. Const varables are not reassignable, block scoped,
+ * and are locally scoped.
  * 
- * 
- * 
- */ 
+ */
+ 
+ //example of var
+ 
+    var greeter = "hey hi";
+    var times1 = 4;
+
+    if (times1 > 3) {
+        var greeter = "say Hello instead"; 
+    }
+    
+    console.log(greeter) // "say Hello instead"
+ 
+ //example of let:
+ 
+   let greeting = "say Hi";
+   let times = 4;
+
+   if (times > 3) {
+        let hello = "say Hello instead";
+        console.log(hello);// "say Hello instead"
+    }
+   console.log(hello) // hello is not defined
+   
+   
+   // example of const:
+   
+    const greetings = "say Hi";
+    greetings = "say Hello instead";// error: Assignment to constant variable. 

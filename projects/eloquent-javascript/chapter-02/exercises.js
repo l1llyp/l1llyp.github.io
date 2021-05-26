@@ -3,15 +3,31 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-
+function triangles(num) {
+  
+for (let line = "#"; line.length < num; line += "#")
+  console.log(line);
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
 function fizzBuzz() {
-  
+    //loop to get all the numbers
+    for(var i = 1; i <= 100; i++) {
+      //write if/else if/ else statement
+      //if the number is both divisible by 3 and 5(15)
+      if(i % 15 === 0) {
+          console.log("FizzBuzz");
+          //if its only divisible by 3
+      } else if(i % 3 === 0) {
+          console.log("Fizz");
+          //if it's only divisible by 5
+      } else if(i % 5 === 0) {
+          console.log("Buzz");
+      } else {
+          console.log(i);
+      }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +35,22 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard() {
+let size = 8;
 
+let board = "";
+
+for (let y = 0; y < size; y++) {
+  for (let x = 0; x < size; x++) {
+    if ((x + y) % 2 == 0) {
+      board += " ";
+    } else {
+      board += "#";
+    }
+  }
+  board += "\n";
+}
+
+console.log(board);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

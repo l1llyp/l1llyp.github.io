@@ -283,9 +283,13 @@ _.filter = function(array, func) {
     var filterArr = []
    //loop through array
    for(var i = 0; i < array.length; i++) {
-       func(array[i], i, array);
-       filterArr.push(func(array[i], i, array));
+       //if the function is called
+       if(func(array[i], i, array)) {
+           //push those elements into the new array
+           filterArr.push(array[i]);
+       }
    }
+   //return the new array
    return filterArr;
 }
 
@@ -304,6 +308,18 @@ _.filter = function(array, func) {
 */
 
 _.reject = function(array, func) {
+    
+      var newArr = []
+   //loop through array
+   for(var i = 0; i < array.length; i++) {
+       //if the function is not called
+       if(!func(array[i], i, array)) {
+           //push those elements into the new array
+           newArr.push(array[i]);
+       }
+   }
+   //return the new array
+   return newArr;
     
 }
 
@@ -328,8 +344,21 @@ _.reject = function(array, func) {
 */
 
 _.partition = function(array, func) {
+    let trueAndFalseArr = [[],[]];
     
-}
+    for(let i = 0; i <= array.length - 1; i++) {
+        
+        if(func(array[i], i, array) === true) {
+            
+            trueAndFalseArr[0].push(array[i]);
+            
+        } else {
+            
+            trueAndFalseArr[1].push(array[i]);
+        }
+    }
+    return trueAndFalseArr;
+};
 
 
 /** _.map
@@ -348,14 +377,16 @@ _.partition = function(array, func) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-_.map = function(collection, func, newArr = []) {
-    //use each
+_.map = function(collection, func) {
+    var newArr = [];
+    //use each to loop through collections
   _.each(collection, function(value, i, collection) {
+      //call the function
     func(value, i, collection)
-
+    //push the elements after the function has been called inot the new array
     newArr.push(func(value, i, collection));
   });
-
+//return new array
   return newArr;
 };
 
@@ -371,8 +402,12 @@ _.map = function(collection, func, newArr = []) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
-_.pluck = function(objArr, property) {
+_.pluck = function(array, key) {
     
+  return array.map(function(obj) {
+      
+    return obj[key];
+  });
 }
 
 /** _.every
@@ -396,9 +431,36 @@ _.pluck = function(objArr, property) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function(collection, func) {
-    
-}
+_.every = function(collection, func){
+       if(func === undefined){
+        for (let i = 0; i < collection.length; i++){
+            if(collection[i] === false){
+                return false;
+            }
+        }
+        return true;
+    }
+    if(Array.isArray(collection)){
+        // loop through array
+        for (let i = 0; i < collection.length; i++){
+            // call function on each index
+            if(!(func(collection[i], i, collection))){
+                return false;
+            }
+        }
+        return true;
+    }
+    else if (typeof collection === "object"){
+        // loop through object
+        for (var key in collection){
+            // call function on each property
+            if(!(func(collection[key], key, collection))){
+                return false;
+            }
+        }
+    return true;
+    }
+};
 
 
 /** _.some
@@ -422,9 +484,36 @@ _.every = function(collection, func) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function(collection, func) {
-    
-}
+_.some = function(collection, func){
+    if(func === undefined){
+        for (let i = 0; i < collection.length; i++){
+            if(collection[i] === true){
+                return true;
+            }
+        }
+        return false;
+    }
+    if(Array.isArray(collection)){
+        // loop through array
+        for (let i = 0; i < collection.length; i++){
+            // call function on each index
+            if((func(collection[i], i, collection))){
+                return true;
+            }
+        }
+        return false;
+    }
+    else if (typeof collection === "object"){
+        // loop through object
+        for (var key in collection){
+            // call function on each property
+            if((func(collection[key], key, collection))){
+                return true;
+            }
+        }
+    return false;
+    }
+};
 
 
 /** _.reduce
