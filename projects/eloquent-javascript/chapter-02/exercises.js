@@ -5,37 +5,41 @@
 
 function triangles(num) {
   
-for (let line = "#"; line.length < num; line += "#")
+for (var line = "#"; line.length <= num; line += "#")
   console.log(line);
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function fizzBuzz() {
-    //loop to get all the numbers
-    for(var i = 1; i <= 100; i++) {
-      //write if/else if/ else statement
-      //if the number is both divisible by 3 and 5(15)
-      if(i % 15 === 0) {
-          console.log("FizzBuzz");
-          //if its only divisible by 3
-      } else if(i % 3 === 0) {
-          console.log("Fizz");
-          //if it's only divisible by 5
-      } else if(i % 5 === 0) {
-          console.log("Buzz");
-      } else {
+function fizzBuzz(num1, num2) {
+  //for loop to start and first number and end (include) at second 
+  for (let i = num1; i <= num2; i++) {
+    //conditional if number (i) is divisible by 3 and 5 using remiander and logical operator
+    if (i % 3 === 0 && i % 5 === 0) {
+      //print fizzbuzz
+      console.log ("fizzbuzz"); 
+       // if divisible by 3
+        } else if (i % 3 === 0) {
+       //print fizz
+          console.log("fizz");
+       //if divisible by 5
+        } else if (i % 5 === 0)  {
+        //print buzz  
+          console.log("buzz");
+        //if anything else 
+        } else {
+         //print remaining numbers in range 
           console.log(i);
-      }
+        }
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-let size = 8;
+function drawChessboard(num) {
+let size = num;
 
 let board = "";
 
