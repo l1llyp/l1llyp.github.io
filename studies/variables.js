@@ -80,7 +80,7 @@ myVariable = "someString";
         let hello = "say Hello instead";
         console.log(hello);// "say Hello instead"
     }
-   console.log(hello) // hello is not defined
+   console.log('hello') // hello is not defined
    
    
    // example of const:

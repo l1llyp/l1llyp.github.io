@@ -25,6 +25,31 @@ if (animal === "cat" ) {
     console.log("i own a cat");
 };
 
+/**
+  * Switch Statements:
+  * 
+  * 1. Switch statements allow us to make conditional statements with less code. 
+  * To create a switch statement, use the switch keyword, that acts as your initial if statement.
+  * If the initial variable is true to the statement, run the case that would be true then you
+  * end the code by breaking out of it with the break keyword.If the case isn't true, switch to
+  * the next case.
+  */ 
+  
+var color = 'purple';
+
+switch (color) {
+  case 'green':
+    console.log('The color provided was green.');
+    break;
+  case 'yellow':
+    console.log('The color provided was yellow.');
+    break;
+  case 'red':
+    console.log('The color provided was red.');
+    break;
+  default:
+    console.log('Sorry, that is not a color we recognize.');
+}
  
  /**
   * Functions:

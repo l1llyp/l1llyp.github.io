@@ -6,8 +6,11 @@
  * that when you invoke or call the function, they perform the instructions given inside of the 
  * function codeblock.
  * 
- * 1. Functions can be called by using the function keyword, a pair of (), and a pair of curly braces, or
+ * 1. Functions can be created by using the function keyword, a pair of (), and a pair of curly braces, or
  * by using the arrow function, a pair of () and curly braces set to a varable.
+ * To call (invoke) the function, you simply write the name of the function with a pair of (). The ()
+ * is where you would put your arguments. Arguments are what you're actually testing in a function. The perameters
+ * you set when making a function are just placeholders for the aruments.
  * 
  * 2. Functions are considered first class objects because they are always hoisted to the 
  * top of the scope and can be used as arguments inside of other functions, used as function 
@@ -26,6 +29,8 @@ function add(num1, num2) {
  };
       
  add(3, 3); //=> prints 6 to the console.
+ 
+ //Function Expression
       
 //use the variable as the call name
  var multiply = (num1, num2) => {

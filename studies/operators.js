@@ -99,4 +99,44 @@ else {
   console.log ("No Attempt");
 }
 }
+
+
+ /**
+ * 4. Unary:
+ * 
+ * A unary operation is an operation with only one operand. This operand comes either 
+ * before or after the operator. Unary operators are more efficient than standard JavaScript 
+ * function calls. Additionally, unary operators can not be overridden, therefore their 
+ * functionality is guaranteed
+ * 
+ */ 
+ 
+// +a // Converts to number
+// -a // Converts to number and negates
+// ++a // Adds 1 to a and returns new a
+// a++ // Adds 1 to a and returns original a
+
+// --a // Subtracts 1 from a and returns new a
+// a-- // Subtracts 1 from a and returns original a
+
+var x = 4       // x = 4
+var y = ++x     // y = 5 and  x = 5
+
+x = 4       // x = 4
+y = --x     // y = 3 and  x = 3
+
+ /**
+ * 4. Ternary:
+ * 
+ * The ternary operator is the only JavaScript operator that takes 
+ * three operands: a condition followed by a question mark (?), then an expression 
+ * to execute if the condition is truthy followed by a colon (:), and finally the 
+ * expression to execute if the condition is falsy. This operator is frequently used 
+ * as a shortcut for the if statement.
+ * 
+ */ 
+ 
+var num = 4, msg = "";
+msg = (num === 4) ? "Correct!" : "Incorrect!";
+alert(msg);
  
