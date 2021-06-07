@@ -221,21 +221,22 @@ _.contains = function(array, value) {
 */
 
 _.each = function(collection, func) {
-    //chceck if value is array
+    //if the collection is an array
     if(Array.isArray(collection)) {
-        //loop through array
+        //loop through the array
         for(var i = 0; i < collection.length; i++) {
-            //call the func function for each value in array
+            //call the func on the element, index, and the collection
             func(collection[i], i, collection);
         }
+        //if the collection is an object
     } else {
-        //loop through object
+        //loop through the object
         for(var key in collection) {
-            //call the func function for each value in the object
+            //call the func on the value, key, and the collection
             func(collection[key], key, collection);
         }
     }
-    }
+};
 
 
 /** _.unique
@@ -280,18 +281,19 @@ for(var i = 0; i < array.length; i++) {
 */
 
 _.filter = function(array, func) {
-    var filterArr = []
-   //loop through array
-   for(var i = 0; i < array.length; i++) {
-       //if the function is called
-       if(func(array[i], i, array)) {
-           //push those elements into the new array
-           filterArr.push(array[i]);
-       }
-   }
-   //return the new array
-   return filterArr;
-}
+    //new array to return
+    var filteredArr = [];
+    //loop through array
+    for(var i = 0; i < array.length; i++) {
+        //if the function is called
+        if(func(array[i], i, array)) {
+            //push the elements into the new array
+           filteredArr.push(array[i]);
+        }
+    }
+    //return new arr
+    return filteredArr;
+};
 
 
 /** _.reject
@@ -378,18 +380,18 @@ _.partition = function(array, func) {
 */
 
 _.map = function(collection, func) {
+    //create new array to return
     var newArr = [];
-    //use each to loop through collections
-  _.each(collection, function(value, i, collection) {
-      //call the function
-    func(value, i, collection)
-    //push the elements after the function has been called inot the new array
-    newArr.push(func(value, i, collection));
-  });
-//return new array
-  return newArr;
+    //use each to loop through array
+    _.each(collection, function(value, i, collection) {
+        //call the func function
+        func(value, i, collection);
+        //push the elements, index, and the collection into the new array
+        newArr.push(func(value, i, collection));
+    })
+    
+    return newArr;
 };
-
 
 /** _.pluck
 * Arguments:
@@ -536,28 +538,26 @@ _.some = function(collection, func){
 */
 
 _.reduce = function(array, func, seed) {
- //check if seed exists/ not undefined
-    if(seed !== undefined) {
-       //if it does, then loop through array
-       for(var i = 0; i < array.length; i++) {
-           //reassign seed to be value of function call 
-          //call the func function on seed, value, index
-          seed = func(seed, array[i], i)
-       }
-       //return seed
-       return seed;
-    } else {
-        //if no seed given, first value in array is the seed
-        seed = array[0];
-        //if it does, then loop through array
-        for (var i = 1; i < array.length; i++) {
-          //reassign seed to be value of function call 
-          //call the func function on seed, value, index
-          seed = func(seed, array[i], i);
-        }
-        return seed;
+ //if the seed exists
+ if(seed !== undefined) {
+     //loop through the array
+     for(var i = 0; i < array.length; i++) {
+         //assign the seed to the function call
+         seed = func(seed, array[i], i);
+     }
+     //return the seed
+     return seed;
+ } else {
+    //if the seed doesn't exist, reassign it to be the first index in the array
+    seed = array[0];
+    //if it does exist, loop through the array at the second index
+    for(var i = 1; i < array.length; i++) {
+        //reassign the seed to equal the function call
+        seed = func(seed, array[i], i);
     }
-    
+    //return the seed
+    return seed;
+ }
 };
 
 
